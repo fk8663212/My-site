@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>My website </title>
+	<link href="css/html-layout-styles.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css">
+	<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css">
+	<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css">
+</head>
+	
+<body>
+	<header>
+		<div class="top_header">
+				<a href="#">HOME</a>
+				<hr class="hr1">
+				<a onclick="document.getElementById('page-about').scrollIntoView({behavior: 'smooth'})" style="cursor: pointer;">ABOUT</a>
+				<hr class="hr2">
+				<a href="#">BLOG</a>
+		</div>
+	</header>
+	<nav>
+		<div class="logo"></div>
+		<ul id="quick-link" class="quick-link">
+			<li>
+				<a onclick="document.getElementById('page-home').scrollIntoView({behavior: 'smooth'})" style="cursor: pointer;"><i class="fi fi-rs-user"></i></a>
+			</li>
+			<li>
+				<a onclick="document.getElementById('page-about').scrollIntoView({behavior: 'smooth'})" style="cursor: pointer;"><i class="fi fi-rr-code-simple"></i></a>
+			</li>
+			<li>
+				<a onclick="document.getElementById('page-blog').scrollIntoView({behavior: 'smooth'})" style="cursor: pointer;"><i class="fi fi-rr-terminal"></i></a>
+			</li>
+			<li>
+				<a onclick="document.getElementById('page-contact').scrollIntoView({behavior: 'smooth'})" style="cursor: pointer;"><i class="fi fi-rr-envelope"></i></a>
+			</li>
+		</ul>
+	</nav>
+	<div class="page-cover">
+		<video autoplay="autoplay" loop="loop" muted="muted" style="height: 1152px;width: 2048px;margin-top: -61px;margin-left: 0px;">
+			<source src="video/steam open.webm">
+		</video>
+	</div>
+
+	
+	<main>
+		<div class="mainpagecontent">
+			<div class="pane-name">
+			  <div class="content">
+					<h1 class="name">Cheng Kai Yang</h1>
+					<div>
+						<h2 class="my-title"> Student 
+							<br>NTTU CSIE
+						</h2>
+						<div class="sub-title">
+						</div>
+						<span style="background:#43CD0C; position: relative;">0x416e6420612067616d657221</span>
+					</div>
+
+				</div>
+			</div>
+			<div class="mainpage">
+				<div class="page-home" id="page-home" data-anchor="home">
+					<div class="fp-tablecell">
+						<!--
+						<section class="content" style=" background:#000000">
+							<h3 class="title">about me</h3>
+							<article class="text">
+								<div class="sub-title" style="background:#27ae60;left: 0px;"></div>
+								<span class="p-sub_title" style="left: 40px">"Everything comes from interest"</span>
+								<br>
+								<br>
+								<br>
+								<p>Passionate about computer security since my youth, it keep growing over the years transforming this passion into a job.</p>
+								<br>
+								<p>Open source, blockchain developer and cyber security researcher with an interest for IoT devices, I enjoy reversing programs, finding bugs and understand the logic of other developer's codes which are for me new ways of thinking. I also love coding and always strive to write elegant and efficient code, whether it be Rust, Python, or JavaScript...</p>
+								<br>
+								<p>When I'm not writing codes that break codes, you'll find me playing table tennis in the neighborhood, making crazy things with my 3D printer or exploring new area in Japan.</p>
+							</article>
+						</section>
+						-->
+					</div>
+				</div>
+				<div class="page-about" id="page-about" data-anchor="about-me">
+					<div class="fp-tablecell">
+						<section class="content" style="background-color: rgb(0 0 0 / 30%)">
+							<h3 class="title">about me</h3>
+							<article class="text">
+								<div class="sub-title" style="background:#27ae60;left: 0px;"></div>
+								<span class="p-sub_title">"Everything comes from interest"</span>
+								<br>
+								<br>
+								<br>
+								<p>Passionate about computer science since my youth, it keep growing over the years transforming this passion into my life.</p>
+								<br>
+								<p>I am a student, gamer, novice photographer, amateur coder, and philosopher of the soul. Currently still in the learning process, I fantasize about releasing a Souls-like game. Additionally, I am researching Chat GPT-related customer service chatbots for website frontend integration.</p>
+								<br>
+								<p>When I'm not writing codes that break codes, you'll find me taking photos on the streets or engaging in card battles of a game called Weiβ Schwarz. And when boredom strikes, I hop onto Steam to play games, extracting inspiration for my creations and relaxing my mind, body, and soul.</p>
+							</article>
+						</section>
+					</div>
+				</div>
+				<div class="page-blog" id="page-blog" data-anchor="blog">
+					<div class="fp-tablecell">
+						<section class="content" style="background-color: rgb(0 0 0 / 30%)">
+							<h3 class="title">my blog</h3>
+							<article class="text">
+								<div class="sub-title" style="background:#27ae60;left: 0px;"></div>
+								<span class="p-sub_title" style="">"LASTEST POST"</span>
+								<br>
+								<br>
+								<br>
+								<p></p>
+								<br>
+								<p style="font-size: 48px ">[To be continued]</p>
+								<!--<img src="img/tobecontinued.png" width="1px">-->
+								<br>
+								<p></p>
+							</article>
+						</section>
+					</div>
+				</div>
+				<div class="page-contact" id="page-contact" data-anchor="contact">
+					<div class="fp-tablecell">
+						<section class="content" style="background-color: rgb(0 0 0 / 30%)">
+							<h3 class="title">keeping in touch</h3>
+							<article class="text">
+								<br>
+								<br>
+								<b>E-MAIL</b>
+								<p>fk8663212@gmail.com</p>
+								<br>
+								<b>Github</b>
+								<p>fk8663212</p>
+								<br>
+								<p></p>
+							</article>
+						</section>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div>
+		
+		
+		</div>
+	</main>
+	
+	
+	
+	
+	
+	
+	<footer class="page-footer">
+		<div class="footer-social">
+			<a href="#"><i class="fi fi-brands-instagram"></i>
+			</a>
+			<a href="#"><i class="fi fi-brands-facebook"></i>
+			</a>
+			<a href="#">
+				<i class="fi fi-brands-twitter"></i>
+			</a>
+			<a href="#">
+				<i class="fi fi-brands-discord"></i>
+			</a>
+			<a href="https://github.com/fk8663212">
+				<i class="fi fi-brands-github"></i>
+			</a>
+			<a href="https://www.youtube.com/channel/UCYhzWQuWljSr5Ohzese5IXQ">
+				<i class="fi fi-brands-youtube"></i>
+			</a>
+		</div>
+	</footer>
+	
+	
+</body>
+</html>
