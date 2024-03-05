@@ -20,7 +20,15 @@ window.addEventListener('wheel', function(event) {
     }
 	
     PageIndex = Math.max(0, Math.min(PageIndex, Arr.length - 1));
+	
+	//for (var i = 0; i < Arr.length; i++) {
+        //document.querySelector('[data-target="' + Arr[i] + '"]').classList.remove('active');
+    //}
+	//document.querySelector('[data-target="' + Arr[PageIndex] + '"]').classList.add('active');
+	
+	//scrollToElement(Arr[PageIndex]);
     document.getElementById(Arr[PageIndex]).scrollIntoView({ behavior: 'smooth' });
+	
 	
 	
 	setTimeout(function() {
@@ -28,3 +36,4 @@ window.addEventListener('wheel', function(event) {
     }, 800);
        event.preventDefault();
     });
+

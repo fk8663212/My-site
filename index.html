@@ -7,12 +7,13 @@
 	<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css">
 	<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css">
 	<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css">
+	<link rel="stylesheet" href="https://unpkg.com/css.gg@2.0.0/icons/css/chevron-double-down.css">
 </head>
 	
 <body>
 	<header>
 		<div class="top_header">
-				<a href="#">HOME</a>
+				<a onclick="document.getElementById('page-home').scrollIntoView({behavior: 'smooth'})" style="cursor: pointer;">HOME</a>
 				<hr class="hr1">
 				<a onclick="document.getElementById('page-about').scrollIntoView({behavior: 'smooth'})" style="cursor: pointer;">ABOUT</a>
 				<hr class="hr2">
@@ -22,16 +23,16 @@
 	<nav>
 		<div class="logo"></div>
 		<ul id="quick-link" class="quick-link">
-			<li>
+			<li class="nav-link active" data-menuanchor="page-home">
 				<a onclick="document.getElementById('page-home').scrollIntoView({behavior: 'smooth'})" style="cursor: pointer;"><i class="fi fi-rs-user"></i></a>
 			</li>
-			<li>
+			<li class="nav-link" data-menuanchor="page-about">
 				<a onclick="document.getElementById('page-about').scrollIntoView({behavior: 'smooth'})" style="cursor: pointer;"><i class="fi fi-rr-code-simple"></i></a>
 			</li>
-			<li>
+			<li class="nav-link" data-menuanchor="page-blog">
 				<a onclick="document.getElementById('page-blog').scrollIntoView({behavior: 'smooth'})" style="cursor: pointer;"><i class="fi fi-rr-terminal"></i></a>
 			</li>
-			<li>
+			<li class="nav-link" data-menuanchor="page-contact">
 				<a onclick="document.getElementById('page-contact').scrollIntoView({behavior: 'smooth'})" style="cursor: pointer;"><i class="fi fi-rr-envelope"></i></a>
 			</li>
 		</ul>
@@ -58,19 +59,12 @@
 							<span style="background:#43CD0C; position: relative;">0x416e6420612067616d657221</span>
 						</div>
 					</div>
-				
+				 
 			</div>
 			<div class="mainpage">
 				<div class="page-home" id="page-home" data-anchor="home">
 					<div class="fp-tablecell">
-						<!-- <footer class="p-scrolldown">
-							<a onclick="document.getElementById('page-about').scrollIntoView({behavior: 'smooth'})" style="cursor: pointer; color: #FFFFFF">
-								<div class="arrow-d" bis_skin_checked="1">
-									<div>Scroll</div>
-									<div>Down</div>
-								</div>
-							</a>
-						</footer> -->
+						 
 					</div>
 				</div>
 				<div class="page-about" id="page-about" data-anchor="about-me">
@@ -134,10 +128,15 @@
 
 			</div>
 		</div>
-		<div>
-		
-		
-		</div>
+		<footer class="p-scrolldown">
+			<div class="arrow-d" bis_skin_checked="1">
+				<div style="position: relative;right: 20px; font-size: 18px">Scroll</div>
+				<div class="mouse">
+					<i class="gg-chevron-double-down"></i>
+				</div>
+				<div style="position: relative; left: 20px; font-size: 18px">Down</div>
+			</div>
+		</footer>
 	</main>
 	
 	
@@ -146,6 +145,7 @@
 	
 	
 	<footer class="page-footer">
+		
 		<div class="footer-social">
 			<a href="#"><i class="fi fi-brands-instagram"></i>
 			</a>
@@ -169,6 +169,8 @@
 	<!-- script -->
 	<script src="script/scroll.js" type="text/javascript">
 	</script>
+	
+	
 	
 </body>	
 </html>
