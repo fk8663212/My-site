@@ -70,6 +70,9 @@
 							<hr />
 							<?php include('php/get-cpu-load.php');?>
 							</p>
+							<hr />
+							<?php include('php/DB.php');?>
+
 						</section>
 					</div>
 				</div>
