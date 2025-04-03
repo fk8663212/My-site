@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>My website </title>
 	<link href="css/html-layout-styles.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css">
@@ -13,9 +14,9 @@
 <body>
 	<header>	
 		<div class="top_header">
-				<a onclick="document.getElementById('page-home').scrollIntoView({behavior: 'smooth'})" style="cursor: pointer;">HOME</a>
+				<a onclick="scrollToPage(0)" style="cursor: pointer;">HOME</a>
 				<hr class="hr1">
-				<a onclick="document.getElementById('page-about').scrollIntoView({behavior: 'smooth'})" style="cursor: pointer;">ABOUT</a>
+				<a onclick="scrollToPage(1)" style="cursor: pointer;">ABOUT</a>
 				<hr class="hr2">
 				<a href="https://sites.google.com/view/11111114s/%E9%A6%96%E9%A0%81?authuser=1">BLOG</a>
 		</div>
@@ -23,22 +24,22 @@
 	<nav>
 		<div class="logo"></div>
 		<ul id="quick-link" class="quick-link">
-			<li class="nav-link active" data-menuanchor="page-home">
-				<a onclick="document.getElementById('page-home').scrollIntoView({behavior: 'smooth'})" style="cursor: pointer;"><i class="fi fi-rs-user"></i></a>
+			<li class="nav-link" data-menuanchor="page-home">
+				<a href="#page-home" style="cursor: pointer;"><i class="fi fi-rs-user"></i></a>
 			</li>
 			<li class="nav-link" data-menuanchor="page-about">
-				<a onclick="document.getElementById('page-about').scrollIntoView({behavior: 'smooth'})" style="cursor: pointer;"><i class="fi fi-rr-code-simple"></i></a>
+				 <a href="#page-about" style="cursor: pointer;"><i class="fi fi-rr-code-simple"></i></a>
 			</li>
 			<li class="nav-link" data-menuanchor="page-blog">
-				<a onclick="document.getElementById('page-blog').scrollIntoView({behavior: 'smooth'})" style="cursor: pointer;"><i class="fi fi-rr-terminal"></i></a>
+				 <a href="#page-blog" style="cursor: pointer;"><i class="fi fi-rr-terminal"></i></a>
 			</li>
 			<li class="nav-link" data-menuanchor="page-contact">
-				<a onclick="document.getElementById('page-contact').scrollIntoView({behavior: 'smooth'})" style="cursor: pointer;"><i class="fi fi-rr-envelope"></i></a>
+				 <a href="#page-contact" style="cursor: pointer;"><i class="fi fi-rr-envelope"></i></a>
 			</li>
 		</ul>
 	</nav>
 	<div class="page-cover">
-		<video autoplay="autoplay" loop="loop" muted="muted" style="height: 1152px;width: 2048px;margin-top: -61px;margin-left: 0px;">
+		<video autoplay="autoplay" loop="loop" muted="muted" class="background-video">
 			<source src="video/steam open.webm">
 			<source src="video/Samy Younsi - Security Researcher.mp4">
 		</video>
@@ -64,19 +65,24 @@
 			<div class="mainpage">
 				<div class="page-home" id="page-home" data-anchor="home">
 					<div class="fp-tablecell">
-						 
+						<section class="content">
+							<h3 class="title">welcome</h3>
+							<article class="text">
+								<div class="sub-title"></div>
+								<span class="p-sub_title">"Hello World"</span>
+								<p>Welcome to my personal website. I'm passionate about technology, gaming, and creating digital experiences.</p>
+								<p>Feel free to explore and learn more about my journey and projects.</p>
+							</article>
+						</section>
 					</div>
 				</div>
 				<div class="page-about" id="page-about" data-anchor="about-me">
 					<div class="fp-tablecell">
-						<section class="content" style="background-color: rgb(0 0 0 / 30%)">
+						<section class="content">
 							<h3 class="title">about me</h3>
 							<article class="text">
-								<div class="sub-title" style="background:#27ae60;left: 0px;"></div>
+								<div class="sub-title"></div>
 								<span class="p-sub_title">"Everything comes from interest"</span>
-								<br>
-								<br>
-								<br>
 								<p>Passionate about computer science since my youth, it keep growing over the years transforming this passion into my life.</p>
 								<br>
 								<p>I am a student, gamer, novice photographer, amateur coder, and philosopher of the soul. Currently still in the learning process, I fantasize about releasing a Souls-like game. Additionally, I am researching Chat GPT-related customer service chatbots for website frontend integration.</p>
@@ -89,21 +95,25 @@
 				</div>
 				<div class="page-blog" id="page-blog" data-anchor="blog">
 					<div class="fp-tablecell">
-						<section class="content" style="background-color: rgb(0 0 0 / 30%)">
+						<section class="content">
 							<h3 class="title">my blog</h3>
-							<article class="text" style="display: flex; justify-content: space-between; align-items: center;">
-								<!-- 左邊文字區塊 -->
-								<div class="text-content" style="flex: 1; padding-left: 20px;">
-									<div class="sub-title" style="background:#27ae60; left: 0px;"></div>
+							<article class="text">
+								<div class="sub-title"></div>
+								<a href="https://sites.google.com/view/11111114s/%E9%A6%96%E9%A0%81?authuser=1" class="blog-link">
 									<span class="p-sub_title">"LATEST POST"</span>
-									<br><br><p>快，不僅僅是超越極限</p><br>
-									<p>BMW M3 GT2 攝於 Nürburgring</p>
-								</div>
-								<!-- 右邊圖片區塊 -->
-								<div class="image-content" style="flex: 1; text-align: left;">
-									<a href="https://sites.google.com/view/11111114s/%E4%BD%9C%E5%93%81%E6%AC%A3%E8%B3%9E?authuser=1">
-										<img src="img/Screenshot_bmw_m3_gt2_ks_nurburgring_29-8-124-23-19-31.jpg" style="width: auto; height: auto; max-width: 90%; margin: 0 auto;">
-									</a>
+								</a>
+								<!-- 左邊文字區塊 -->
+								<div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+									<div class="text-content" style="flex: 1; padding: 0 15px;">
+										<p>快，不僅僅是超越極限</p>
+										<p>BMW M3 GT2 攝於 Nürburgring</p>
+									</div>
+									<!-- 右邊圖片區塊 -->
+									<div class="image-content" style="flex: 1; text-align: center; padding: 0 15px;">
+										<a href="https://sites.google.com/view/11111114s/%E4%BD%9C%E5%93%81%E6%AC%A3%E8%B3%9E?authuser=1">
+											<img src="img/Screenshot_bmw_m3_gt2_ks_nurburgring_29-8-124-23-19-31.jpg" style="width: auto; height: auto; max-width: 100%;">
+										</a>
+									</div>
 								</div>
 							</article>
 						</section>
@@ -111,30 +121,25 @@
 				</div>
 				<div class="page-contact" id="page-contact" data-anchor="contact">
 					<div class="fp-tablecell">
-						<section class="content" style="background-color: rgb(0 0 0 / 30%)">
+						<section class="content">
 							<h3 class="title">keep in touch</h3>
-							<article class="text" style="display: flex; justify-content: space-between; align-items: center;">
-    							<!-- 左邊文字區塊 -->
-								<div class="text-content" style="flex: 1; padding-left: 20px;">
-									<b>E-MAIL</b>
-									<p>fk8663212@gmail.com</p>
-									<br>
-									<b>Github</b>
-									<p>fk8663212</p>
-									<br>
-									<audio controls src="music/2016.mp3"></audio>
-									<br>
-								</div>
-								<!-- 右邊圖片區塊 -->
-								<div class="image-content" style="flex: 1; text-align: center;">
-									<img src="img/PXL_20231031_025700286.PORTRAIT.jpg" style="width: auto; height: auto; max-width: 50%; margin: 0 auto;">
+							<article class="text">
+								<!-- <div class="sub-title"></div> -->
+								<!-- <span class="p-sub_title">"GET IN TOUCH"</span> -->
+								<div style="display: flex; flex-wrap: wrap; gap: 30px; margin-top: 20px; text-align: left;">
+									<div style="flex: 1; min-width: 200px;">
+										<b>E-MAIL</b>
+										<p>fk8663212@gmail.com</p>
+									</div>
+									<div style="flex: 1; min-width: 200px;">
+										<b>Github</b>
+										<p>fk8663212</p>
+									</div>
 								</div>
 							</article>
-
 						</section>
 					</div>
 				</div>
-
 			</div>
 		</div>
 		<footer class="p-scrolldown">
@@ -176,8 +181,7 @@
 	</footer>
 	
 	<!-- script -->
-	<script src="script/scroll.js" type="text/javascript">
-	</script>
+	<script src="script/scroll.js" type="text/javascript"></script>
 	
 	
 	

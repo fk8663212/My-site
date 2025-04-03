@@ -1,20 +1,21 @@
-@charset 'UTF-S';
+@charset 'UTF-8';
 
 html,
 html * {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	overflow-y: hidden;
+	overflow-y: visible;
 }
 
 
 body{
 	font-family: arial,sans-serif;
-	font-size: lvw;
-	background: white;
+	font-size: 1vw;
 	background-color: #000000;
+	overflow-x: hidden;
 }
+
 header{
 	position: fixed;
 	padding: 2em;
@@ -52,10 +53,10 @@ nav{
 	position: absolute;
 }
 .quick-link li{
-	
 	width: 64px;
 	height: 50px;
-	
+	position: relative;
+	transition: all 0.3s ease;
 }
 
 .quick-link li a{
@@ -69,12 +70,34 @@ nav{
     opacity: 1;
     position: absolute;
     z-index: 1;
-    transition: .2s;
+    transition: .3s;
 	text-decoration:none;
+}
+
+.quick-link li.active {
+	background-color: rgba(255, 255, 255, 0.1);
+	border-left: 3px solid #27ae60;
+}
+
+.quick-link li.active a {
+	color: #27ae60;
 }
 
 .quick-link li a i{
 	color: white;
+	transition: color 0.3s ease;
+}
+
+.quick-link li.active a i {
+	color: #27ae60;
+}
+
+.quick-link li:hover:not(.active) {
+	background-color: rgba(255, 255, 255, 0.05);
+}
+
+.quick-link li:hover:not(.active) a i {
+	color: #cccccc;
 }
 
 .page-footer{
@@ -170,12 +193,14 @@ span{
 	font-size: 20px;
 }
 .sub-title {
-	position:relative;
-	background:white;
+	position: relative;
+	background: #27ae60;  /* 改為綠色 */
 	height: 1px;
 	width: 35px;
-	top: 14px;
-	left: 16px;
+	margin: 0 auto 20px auto;
+	display: block;
+	left: 0 !important;
+	top: 0;
 }
 .top-nav {
 	top: 50px;
@@ -217,16 +242,44 @@ span{
 	left: 50%;
 }
 
+/* 修改內容區域樣式 */
+.content {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    padding: 30px;
+    border-radius: 4px;
+    border-left: 4px solid #27ae60;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.content:hover {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    transform: translateY(-5px);
+}
+
 .title {
 	color: white;
 	text-transform: uppercase;
 	line-height: 1em;
 	font-weight: 700;
-	padding: 6px;
+	padding: 6px 0 12px 0;
 	font-size: 32px;
-	border-bottom: 8px solid #282828;
+	border-bottom: 2px solid #27ae60;
 	display: inline-block;
-	
+	margin-bottom: 25px;
+	position: relative;
+}
+
+.title:after {
+	content: '';
+	position: absolute;
+	width: 50px;
+	height: 2px;
+	background-color: #27ae60;
+	bottom: -6px;
+	left: 0;
 }
 
 .fp-tablecell {
@@ -236,28 +289,85 @@ span{
   	transform: translate(-50%, -50%);
 	padding-left: 80px;
     padding-right: 100px;
-	
+	transition: transform 0.5s ease, opacity 0.5s ease;
+	width: 100%;
+	max-width: 90%;
+}
+
+/* 段落文字樣式改進 */
+.text {
+	color: aliceblue;
+	padding: 6px;
+	text-align: center;  /* 整體內容居中 */
+}
+
+.text p {
+	line-height: 1.8;
+	margin-bottom: 15px;
+	font-size: 16px;
+	color: #e0e0e0;
+	text-align: left;  /* 段落文字左對齊 */
+}
+
+.text b {
+	color: #27ae60;
+	font-size: 18px;
+	display: block;
+	margin-bottom: 5px;
+}
+
+/* 圖片內容區樣式 */
+.image-content {
+	transition: all 0.3s ease;
+	overflow: hidden;
+	border-radius: 4px;
+}
+
+.image-content:hover {
+	transform: scale(1.02);
+}
+
+.image-content img {
+	border-radius: 4px;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	transition: all 0.3s ease;
+}
+
+.image-content:hover img {
+	border-color: #27ae60;
+}
+
+/* 標籤文字樣式統一調整 */
+.p-sub_title {
+    color: #27ae60;
+    text-transform: uppercase;
+    font-size: 20px;
+    margin: 0 auto 20px auto;
+    display: block;
+    position: relative;
+    font-weight: 600;
+    text-align: center;
+    left: 0;
+    width: 100%;
+}
+
+/* 文字內容區塊樣式 */
+.text-content {
+	padding: 10px 20px !important;
 }
 
 .page-home {
 	height: 25%;
 	/*background: #B12628;*/
 	width: auto;
+	transition: opacity 0.5s ease;
 }
 
 .page-about {
 	height: 25%;
 	/*background:#0D28A8;*/
 	width: auto;
-}
-
-
-
-.p-sub_title {
-	color: #27ae60;
-	text-transform: uppercase;
-	font-size: 20px;
-	left:120px;
+	transition: opacity 0.5s ease;
 }
 
 .text {
@@ -265,24 +375,25 @@ span{
 	padding: 6px;
 }
 
-
-
 .page-contact {
 	height: 25%;
 	/*background:#9F1EF4;*/
 	width: auto;
+	transition: opacity 0.5s ease;
 }
 
 .mainpagecontent {
 	position: absolute;
 	width: 100%;
 	height: 400%;
+	transition: transform 0.5s ease;
 }
 
 .page-blog {
 	height: 25%;
 	/*background:#0A91E4;*/
 	width: auto;
+	transition: opacity 0.5s ease;
 }
 
 .page-cover {
@@ -318,4 +429,227 @@ span{
 	border:  3px solid #666;
 	border-radius: 50%;
 	
+}
+
+/* 背景視頻響應式設計 */
+.background-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: -1;
+    object-fit: cover;
+}
+
+/* 底部滾動提示動畫 */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.gg-chevron-double-down {
+    animation: bounce 2s infinite;
+}
+
+/* 部落格連結樣式 */
+.blog-link {
+    text-decoration: none;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.blog-link:hover .p-sub_title {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(39, 174, 96, 0.7);
+}
+
+.blog-link::after {
+    content: "\f061"; /* 箭頭圖標 */
+    font-family: "Flaticon";
+    font-size: 14px;
+    color: #27ae60;
+    margin-left: 10px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    position: absolute;
+    transform: translateX(-20px);
+}
+
+.blog-link:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* 調整blog頁面子標題 */
+#page-blog .p-sub_title {
+    text-align: left;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    padding-right: 30px; /* 為箭頭留出空間 */
+}
+
+/* 在blog頁面添加指示箭頭 */
+#page-blog .p-sub_title::after {
+    content: "\2192"; /* 右箭頭字符 */
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+#page-blog .p-sub_title:hover::after {
+    opacity: 1;
+    right: -10px;
+}
+
+/* 響應式設計的媒體查詢 */
+@media screen and (max-width: 1200px) {
+    .pane-name {
+        right: 40%;
+    }
+    
+    .mainpage {
+        left: 60%;
+    }
+    
+    .name {
+        font-size: 50px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .pane-name {
+        position: relative;
+        left: 64px;
+        right: 0;
+        height: 50vh;
+        width: calc(100% - 64px);
+    }
+    
+    .mainpage {
+        position: relative;
+        left: 64px;
+        right: 0;
+        width: calc(100% - 64px);
+    }
+    
+    .mainpagecontent {
+        height: auto;
+    }
+    
+    .page-home, .page-about, .page-blog, .page-contact {
+        height: 100vh;
+    }
+    
+    .name {
+        font-size: 40px;
+    }
+    
+    .my-title {
+        font-size: 24px;
+    }
+    
+    .pane-name .content {
+        left: 10%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .top_header {
+        display: none;
+    }
+    
+    .pane-name {
+        left: 0;
+        width: 100%;
+    }
+    
+    .mainpage {
+        left: 0;
+        width: 100%;
+    }
+    
+    nav {
+        width: 100%;
+        height: 50px;
+        bottom: 0;
+        top: auto;
+    }
+    
+    .quick-link {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        top: 0;
+    }
+    
+    .quick-link li {
+        flex: 1;
+    }
+    
+    .page-footer {
+        bottom: 60px;
+    }
+    
+    .p-scrolldown {
+        display: none;
+    }
+    
+    .text {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .name {
+        font-size: 30px;
+    }
+    
+    .my-title {
+        font-size: 18px;
+    }
+    
+    .title {
+        font-size: 24px;
+    }
+    
+    article.text {
+        flex-direction: column;
+    }
+    
+    .text-content, .image-content {
+        flex: none;
+        width: 100%;
+        padding: 10px;
+    }
+    
+    .image-content {
+        text-align: center;
+    }
+    
+    .image-content img {
+        max-width: 100%;
+    }
+    
+    .footer-social {
+        justify-content: center;
+    }
+    
+    .footer-social a {
+        margin: 0 5px;
+    }
 }
