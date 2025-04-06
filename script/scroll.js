@@ -41,6 +41,36 @@ document.addEventListener('wheel', function(event) {
     scrollToPage(newIndex);
 });
 
+// 添加觸摸事件支持
+let touchStartY = 0;
+let touchEndY = 0;
+const minSwipeDistance = 50;
+
+document.addEventListener('touchstart', function(event) {
+    if (window.innerWidth <= 768) return; // 在小螢幕上不啟動整頁滾動
+    
+    touchStartY = event.changedTouches[0].screenY;
+}, false);
+
+document.addEventListener('touchend', function(event) {
+    if (window.innerWidth <= 768) return; // 在小螢幕上不啟動整頁滾動
+    
+    touchEndY = event.changedTouches[0].screenY;
+    handleSwipe();
+}, false);
+
+function handleSwipe() {
+    if (isScrolling) return;
+    
+    const direction = touchStartY > touchEndY ? 1 : -1;
+    const distance = Math.abs(touchStartY - touchEndY);
+    
+    if (distance > minSwipeDistance) {
+        const newIndex = Math.min(Math.max(PageIndex + direction, 0), Arr.length - 1);
+        scrollToPage(newIndex);
+    }
+}
+
 // 設置導航點擊事件
 document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-link');
@@ -78,8 +108,27 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener('resize', function() {
     if (window.innerWidth <= 768) {
         document.body.style.overflowY = 'auto';
+        
+        // 重設導航位置
+        if (window.scrollY > 0) {
+            const sections = document.querySelectorAll('.page-home, .page-about, .page-blog, .page-contact');
+            let currentSectionIndex = 0;
+            
+            sections.forEach((section, index) => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                    currentSectionIndex = index;
+                }
+            });
+            
+            PageIndex = currentSectionIndex;
+            updateActiveNavItem();
+        }
     } else {
         document.body.style.overflowY = 'hidden';
+        
+        // 確保在大螢幕上返回時正確顯示當前頁面
+        document.getElementById(Arr[PageIndex]).scrollIntoView({ behavior: 'auto' });
     }
 });
 
@@ -93,5 +142,30 @@ document.addEventListener('keydown', function(e) {
         scrollToPage(PageIndex - 1);
     }
 });
+
+// 添加捲動檢測，以更新行動模式下的導航選中狀態
+if (window.innerWidth <= 768) {
+    window.addEventListener('scroll', function() {
+        if (isScrolling) return;
+        
+        clearTimeout(scrollingTimeout);
+        scrollingTimeout = setTimeout(() => {
+            const sections = document.querySelectorAll('.page-home, .page-about, .page-blog, .page-contact');
+            let currentSectionIndex = 0;
+            
+            sections.forEach((section, index) => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                    currentSectionIndex = index;
+                }
+            });
+            
+            if (PageIndex !== currentSectionIndex) {
+                PageIndex = currentSectionIndex;
+                updateActiveNavItem();
+            }
+        }, 50);
+    });
+}
 
 
